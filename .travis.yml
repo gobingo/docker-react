@@ -1,0 +1,9 @@
+sudo: required
+services:
+  - docker
+
+before_install:
+  - docker build -t gobingo/docker-react -f Dockerfile.dev .
+
+script:
+  - docker run gobingo/docker-react npm run test -- --coverage
